@@ -1,3 +1,48 @@
 This is code for a blog post where I took inequality and income data; using R and Csound I sonified the inequality data and visually displayed the income data.
 
 See the website link for more details on this project.
+
+R
+--------------------
+data.R 		
+--data-wrangling which generated countrydec.csv and ineqGDPCap2000.csv
+--requires WIID2C.csv
+
+csoundio.R
+--simple functions for interfacing R with Csound
+
+scorecreation.R
+--create a csound score based on inequality data and plays it
+--requires csoundio.R, drumpatterns.orc, and countrydec.csv
+
+animation.R
+--create animation section
+--requires ineqGDPCap2000.csv
+
+Csound
+--------------------
+drumpatterns.orc
+--filtered noise instrument used by scorecreation.R
+--contains "header" that is read by csndtemplate() function
+
+soundlines.csd
+--stand-alone CSD file
+--realizes Estonia's inequality using pitches
+--used as an example of where the standard pitch vs. time approach fails
+
+CSV
+--------------------
+WIID2C.csv
+--Inequality data from WIID
+--starting point for data.R
+--Dowloaded from http://www.wider.unu.edu/research/Database/en_GB/wiid/_files/79789834673192984/default/WIID2C.xls
+--Imported into Gnumeric, then exported as CSV
+
+ineqGDPCap2000.csv
+--Inequality data combined with WDI GDP/capita data
+--used by animation.R
+
+countrydec.csv
+--reshape of ineqGDPCap2000.csv data
+--used by scorecreation.R
+
